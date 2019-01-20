@@ -20,6 +20,8 @@ param
 
 $NugetUrl = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
 $NugetExe = Join-Path $PSScriptRoot "nuget.exe"
+$PSScriptRoot = "C:/Program Files (x86)/Jenkins/workspace/New Pipeline@script/Jenkinsfile"
+$LastExitCode = "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" src/PhpTravels.UITests.sln
 # Define additional variables here (MSBuild path, etc.)
 
 Function DownloadNuGet()
@@ -35,12 +37,14 @@ Function RestoreNuGetPackages()
 {
     DownloadNuGet
     Write-Output 'Restoring NuGet packages...'
+    $NugetExe = Join-Path $PSScriptRoot "nuget.exe"
     # NuGet.exe call here
 }
 
 Function BuildSolution()
 {
     Write-Output "Building '$Solution' solution..."
+    $LastExitCode = "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" src/PhpTravels.UITests.sln
     # MSBuild.exe call here
 }
 
