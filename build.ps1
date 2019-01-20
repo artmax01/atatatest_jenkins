@@ -21,7 +21,7 @@ param
 $NugetUrl = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
 $NugetExe = Join-Path $PSScriptRoot "nuget.exe"
 $JenkinsFile = "C:/Program Files (x86)/Jenkins/workspace/New Pipeline@script/Jenkinsfile"
-$MSBuild = "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" src/PhpTravels.UITests.sln
+$MSBuild = "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" src/PhpTravels.UITests.sln & $MSBuild $Solution
 # Define additional variables here (MSBuild path, etc.)
 
 Function DownloadNuGet()
