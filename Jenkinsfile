@@ -23,9 +23,14 @@ def RunNUnitTests(String pathToDll, String condition, String reportName)
 
 node('master') 
 {
+    stage('Copy Build Artifacts')
+    {
+        powershell ".\\build.ps1 CopyArtifacts -BuildArtifactsFolder $buildArtifactsFolder"
+    }
+    
     stage('Checkout')
     {
-        git branch: branch, url: 'https://github.com/PixelScrounger/atata-phptravels-uitests.git'
+        git branch: branch, url: 'https://github.com/artmax01/atatatest_jenkins.git'
     }
     
     stage('Restore NuGet')
